@@ -1,0 +1,240 @@
+
+\section{Struktura terminowa stóp procentowych}
+
+	\card{Czynnik dyskontujący (B)}
+	$B(t) = \frac{|C_0|}{C_t}$
+
+	\card{Powiązanie B z efektywną stopą zwrotu R}
+	$B = \frac{1}{(1+R)^t}$
+
+	\card{Powiązanie b z intensywnością oprocentowania $\Bar{R}$}
+	$B(t) = e^{-\Bar{R}t}$
+
+	\card{Czynnik dyskontujący a stopa dyskonta}
+	$B(t) = 1 - D(t)$
+
+	\card{Struktura terminowa (definicja)}
+	Relacja między efektywnością inwestycji a czasem pozostałym do momentu zapadalności
+
+    \card{Warunki brzegowe na funkcję B}
+    $B(0) = 1$\\
+    $\lim\limits_{t \to \infty} B(t) = 0$\\
+    B ściśle malejąca
+
+    \card{Yield function (Y(t)), wzór}
+    $$Y(t) = -lnB(t) = \int_0^t \delta (s)\,ds$$
+
+    \card{Struktura terminowa płaska (Y, R, B)}
+    $$Y(t) = t\delta$$
+    $$B(t) = e^{-t\delta}$$
+    $$R(t) = e^{\delta} - 1$$
+
+    \card{Struktura terminowa kawałkami stała (intuicja)}
+    $\delta (t) = \delta_i$ gdy $t \in [t_{i-1},t_i]$
+
+    \card{Wzór Stoodleya (do struktury terminowej kawałkami płaskiej)}
+    $$Y(t) = \int_0^t \delta (s) \, ds = (p+s)t - ln (\frac{1+r^{st}}{1+r})$$\\
+    $$B(t) = \frac{1}{1+r}e^{-(p+s)t}+\frac{r}{1+r}e^{-pt}$$
+
+    \card{Kontrakty FRA (definicja ogólna)}
+    FRA (ang. Forward Rate Agreement) to umowa pomiędzy dwoma kontrahentami którzy ustalają wysokość stopy procentowej mającej obowiązywać w przyszłości dla określonej kwoty wyrażonej w walucie transakcji ustalonego okresu
+
+    \card{FRA (długa pozycja)}
+    Otrzymuje przepływ determinowany przez stawkę referencyjną, w zamian za stawkę stałą kontraktu (RECEIVE floating, PAY fixed)
+
+    \card{FRA (krótka pozycja)}
+    Otrzymuje przepływ stały w kwocie ustalonej w dniu zawarcia transakcji, w zamian za stawkę referencyjną (RECEIVE fixed, PAY floating)
+
+    \card{Data rozpoczęcia okresu odsetkowego}
+    $T_s$  przeważnie drugi kolejny dzień roboczy
+
+    \card{FRA - wypłaty wzór}
+    $$CF_{buyer} = K \frac{(r_{ref}-r_{FRA})(T_e - T_s)}{1 + r_{ref}(T_e-T_s)} = -CF_{seller}$$
+
+    \card{Powiązanie stawki $r_{FRA}$ ze strukturą terminową stóp procentowych w $T_t$}
+    $$r_{FRA}(T_e-T_s)=\frac{B(T_s-T_t)}{B(T_e-T_t)}-1$$
+
+\section{Podstawowe instrumenty dłużne na przykładzie Polski}
+
+    \card{Sztywna stopa procentowa}
+    Ustalana w momencie zawarcia umowy lub emisji, np. obligacje o stałym oprocentowaniu lub zerokuponowe
+
+    \card{Zmienne stopy procentowe}
+    Ustalanie odsetek następuje w trakcie trwania umowy
+
+    \card{WIBOR}
+    WIBOR (ang. Warsaw Interbank Offered Rate) to stopa oprocentowania pożyczek w polskim rynku międzybankowym. Ustalana jest w każdy dzień roboczy o godzinie 11.
+
+    \card{WIBID}
+    WIBID (ang. Warsaw Interbank Bid Rate) to roczna stopa procentowa, jaką płacą banki za środki przyjęte w depozyt od innych banków. Ustalana w każdy dzień roboczy o godzinie 11.
+
+    \card{Obligacja}
+    Obligacja to papier wartościowy poświadczający wierzytelność na określoną sumę. Emisja obligacji następuje seriami, przy czym w jednej serii wszystkie obligacje mają tę samą wartość nominalną, tej sam termin wykupu i ten sam sposób naliczania odsetek.
+
+    \card{Obligacja WSmmrr}
+    Obligacja dwudziestoletnia
+
+    \card{Obligacja DSmmrr}
+    Obligacja dziesięcioletnie
+
+    \card{Obligacje SPmmr i PSmmrr}
+    Obligacje pięcioletnie
+
+    \card{Obligacje OKmmrr}
+    Dwuletnie obligacje zerokuponowe
+
+    \card{Cena czysta obligacji}
+    Wartość nominalna * kurs
+
+    \card{Cena brudna obligacji}
+    Cena czysta + narosłe odsetki
+
+\section{Wyznaczanie struktury terminowej stopy zwrotu}
+
+    \card{B(t) dla obligacji zerokuponowych i bonów}
+    $$ B(t) = \frac{P}{C_t} $$
+    $P$ cena zakupu\\
+    $C_t$ kwota otrzymana po wykupieniu obligacji
+
+    \card{YTM (definicja)}
+    Yield To Maturity - stopa zwrotu liczona do momentu zapadalności
+
+    \card{YTM obliczanie}
+    Założenie teoretyczne - reinwestujemy otrzymane odsetki z taką samoą efektywną stopą zwrotu
+    $$P(1+YTM)^{t_n}=C_1(1+YTM)^{t_n-t_1}+...+C_{n-1}(1+YTM)^{t_n-t_{n-1}}+C_n$$
+
+    \card{Obliczanie B(t) na podstawie YTM}
+    $$B(t_n) = \frac{1}{(1+YTM)^{t_n}}$$
+
+    \card{Metoda łańcuchowa obliczania $B(t_n)$}
+    Jeśli znamy B(t) dla $t=t_1,...,t_{n-1}$ to $B(t_n)$ wyznaczamy ze wzoru
+    $$P = \sum^n_{k=1}C_kB(t_k)$$
+
+\section{Analiza instrumentów dłużnych}
+
+    \card{Present Value (definicja)}
+    Wartość obecna (Present Value) przyszłej kwoty K to wartość tej kwoty w chwili obecnej wyznaczonej przez porównanie z lokatą bankową lub inną wzorcową inwestycją.
+
+    \card{Dyskontowanie}
+    Proces przekształcania przyszłej wartości pieniądza. Pozwala porównać ze sobą kontrakty finansowe o przepływach gotówki w różnych momentach czasu
+
+    \card{Dyskontowanie za pomocą struktury terminowej stóp procentowych (wzór)}
+    $$PV = \sum^n_{i=0}CF_iB(t_i)$$
+
+    \card{Dyskontowanie za pomocą wybranego procesu akumulacji K(t)}
+    $$PV = \sum^n_{i=0}\frac{CF_iK(t)}{K(T+t_i)}$$
+    gdzie T to moment zawarcia transakcji
+
+    \card{Modelowanie inwestycji za pomocą ciągłego strumienia płatności z zadaną gęstością g(t)}
+    Wzór na wypłatę w okresie $t_1, t_2$
+    $$C(t_1,t_2) = \int^{t_2}_{t_1}g(t)dt$$
+    Wzór na wartość obecną
+    $$PV=\int^{\infty}_0g(t)B(t)dt$$
+
+    \card{Zależność struktury terminowej od procesu akumulacji}
+    $$B_T(t)=\frac{K(T)}{K(T+t)}$$
+
+    \card{Zależność opłacalności inwestycji od PV}
+    $PV>0$ inwestycja opłacalna
+    $PV<0$ inwestycja nieopłacalna
+
+    \card{IRR}
+    IRR (Internal Rate of Return) to dodatni pierwiastek r
+    $$\sum^n_{t=0}\frac{CF_i}{(1+r)^{t_i}}$$
+    Wewnętrzna intensywność to delta
+
+    \card{Zależność opłacalności inwestycji od IRR}
+    $IRR>r$ to inwestycja opłacalna
+    $IRR<r$ inwestycja nieołacalna
+
+    \card{IRR a YTM}
+    IRR = YTM
+
+    \card{RRSO}
+    IRR taki, że każdy $CF_k$ to
+    $$CF_k=-K_k+RK_k+OD_k+P_k$$
+    gdzie K to transza kredytu, RK to rata kredytowa, OD to zapłacone odsetki, P to prowizje i inne opłaty
+
+\section{Zarządzanie portfelem instrumentów dłużnych}
+    \card{Duration (definicja)}
+    Średni czas życia danej inwestycji ważony udziałem wartości obecnej kolejnych przepływów gotówki w wartości obecnej całej inwestycji
+
+    \card{Duration (wzór)}
+    $$D=\sum^n_{i=1}\frac{t_iPV_i}{PV}$$
+
+    \card{Convexity (definicja)}
+    Convexity (wypukłość) to średni kwadrat czasu życia danej inwestycji
+
+    \card{Convexity (wzór)}
+    $$C=\sum^n_{i=1}\frac{t_i^2PV_i}{PV}$$
+
+    \card{Future Value (definicja)}
+    Wielkość przepływu gotówki po czasie t, którego wartość obecna jest równa PV
+
+    \card{Future Value (wzór)}
+    $$PV = FV_tB(t)$$
+
+\section{Giełda. Rynek akcji}
+    \card{Akcja (definicja)}
+    Dokument stwierdzający udział jej posiadacza, czyli akcjonariusza, w majątku spółki akcyjnej
+
+    \card{Faza sesji giełdowej - przed otwarciem}
+    W tej facie możliwe jest wprowadzanie zleceń do systemu giełdowego. Zlecenia składane przez inwestorów trafiają bezpośrednio do centralnego arkusza zleceń, jednakże nie są zawierane transakcje.
+
+    \card{Faza sesji giełdowej - fixing}
+    Zostaje wyznaczony kurs i następuje realizacja po tym kirsie jedynie tych wprowadzonych wcześniej zlezeń które mogą być zrealizowane
+
+    \card{Faza sesji giełdowej - notowania ciągłe}
+    Możliwe jest wprowadzanie zleceń. Transakcje zawierane są na bieżąco, natychmiast po wprowadzeniu zlecenia, które może być zrealizowane. Zlecenie, które ze względu na limit ceny nie może być zrealizowane, zostaje umieszczone w arkuszu zleceń.
+
+    \card{Faza sesji giełdowej - dogrywka}
+    Wszyscy uczestnicy rynku mogą składań zlecenia kupna i sprzedaży po wyznaczonym kursie.Transakcje zawierane są na bieżąco.
+
+    \card{Renta (definicja)}
+    Ciąg płatności dokonywany w odstępach czas.
+
+    \card{Kursy - oznaczenia}
+    $K_k$ - liczba zleceń kupna z limitem ceny k\\
+    $S_k$ - liczba zleceń sprzedaży z limitem ceny k\\
+    \\
+    $$S_k^+=\sum_{p>k}S_p$$
+    $$S_k^-=\sum_{p<k}S_p$$
+    \\
+    $$K_k^+=\sum_{p>k}K_p$$
+    $$K_k^-=\sum_{p<k}K_p$$
+
+    \card{Kurs równowagi (wzór czyli definicja)}
+    Takie k dla którego jest spełnione
+    $$S_k+S_k^-\geq K_k^+$$
+    i
+    $$K_k+K_k^+\geq S_k^-$$
+
+    \card{Kurs równowagi (wyznaczanie)}
+    M - zbiór kursów równowagi
+    $$m = \sum_pK_p,\; n = \sum_pS_p$$
+    Ustawiamy n+m limitów w ciąg rosnący
+    $$p_1, p_2, ..., p_m, p_{m+1}, ..., p_{n+m}$$
+    $$M = [p_m,p_{m+1}]$$
+
+    \card{Wolument obrotu}
+    $$Vol(x) = min(\sum_{p \geq x}K_p,\sum_{x \geq p}S_p)$$
+
+    \card{Wolument obrotu a kurs równowagi}
+    Każdy kurs równowagi maksymalizuje wolumen obrotu
+
+    \card{Indeks giełdowy}
+    Indeks giełdowy jest miernikiem zmian cen papierów wartościowych, obejmującym wszystkie papiery wartościowe danego typu lub ich wybraną grupę. Ma on za zadanie przedstawienie tendencji cenowych na giełdzie
+
+    \card{Wyznaczanie indeksu giełdowego}
+    $$I_t=\frac{M_tI_{t_0}}{M_{t_0}K_t}$$
+    $$M_t=\sum n_iP_{i,t}$$
+
+    $M_t$ – wartość (kapitalizacja) portfela indeksu w chwili t\\
+    $n_i$ – liczba akcji i-tej spółki w portfelu indeksu\\
+    $P_{i,t}$ – kurs akcji i-tej spółki w chwili (dniu) t\\
+    $I_{t_0}$ i $M_{t_0}$ – wartość początkowa (bazowa) indeksu i jego portfela\\
+    $K_t$ – współczynnik (dzielnik) korygujący
+
+    \card{Wyznaczanie indeksu WIG}
+    $$WIG(t)=\frac{M(t)WIG(0)}{M(0)K(t)}$$
+    WIG(0) - wartość indeksu w dniu bazowym
